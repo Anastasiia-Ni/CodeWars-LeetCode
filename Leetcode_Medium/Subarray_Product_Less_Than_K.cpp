@@ -28,14 +28,14 @@ public:
         int res = 0;
         long prod = 1;
 
-    for (int i = 0, j = 0; j < len; j++) {
-        prod *= nums[j];
-        while (i <= j && prod >= k) {
-            prod /= nums[i];
-            i++;
+        for (int i = 0, j = 0; j < len; j++) {
+            prod *= nums[j];
+            while (i <= j && prod >= k) {
+                prod /= nums[i];
+                i++;
+            }
+            res += (j - i + 1);
         }
-        res += (j - i + 1);
-    }
         return res;
     }
 };
