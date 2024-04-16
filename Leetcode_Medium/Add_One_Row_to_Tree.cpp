@@ -39,23 +39,26 @@ struct TreeNode {
 class Solution {
 public:
     TreeNode* addOneRow(TreeNode* root, int val, int depth) {
-        if (depth == 0 || depth == 1) {
-            TreeNode* tmp = new TreeNode(val);
-            if (depth)
-                tmp->left = root;
-            else
-                tmp->right = root;
-            return tmp;
+        if (!root) {
+            return nullptr;
         }
-        if (root && depth) {
-            if (--depth > 1) {
-                root->left = addOneRow(root->left, val, depth);
-                root->right =  addOneRow(root->right, val, depth);
-            }
-            else {
-                root->left = addOneRow(root->left, val, 1);
-                root->right =  addOneRow(root->right, val, 0);
-            }
+        --depth;
+        if (!depth) {
+            TreeNode* newRoot = new TreeNode(val);
+            newRoot->left = root;
+            return newRoot;
+        }
+        if (depth == 1) {
+            TreeNode* newLeft = new TreeNode(val);
+            TreeNode* newRight = new TreeNode(val);
+            newLeft->left = root->left;
+            newRight->right = root->right;
+            root->left = newLeft;
+            root->right = newRight;
+        }
+        else {
+            addOneRow(root->left, val, depth);
+            addOneRow(root->right, val, depth);
         }
         return root;
     }
