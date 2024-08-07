@@ -6,4 +6,5 @@ These are some of my Kata's solutions from CodeWars
 
 and from Leetcode
 
-[![KnlnKS's LeetCode stats](https://leetcode-stats-six.vercel.app/api?username=Anastasia-Ni&theme=dark)](https://github.com/KnlnKS/leetcode-stats)
+![](https://leetcard.jacoblin.cool/Anastasia-Ni?border=0&radius=20)
+
